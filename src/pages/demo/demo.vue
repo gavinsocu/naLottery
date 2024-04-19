@@ -52,6 +52,10 @@ export default {
                 this.probabilities[0][2] = 20;
                 this.probabilities[1][2] = 70;
             }
+            if(this.value == '1'){
+                this.probabilities[2][2] = 95;
+                this.probabilities[3][2] = 99;
+            }
             const randomNumber = Math.random() * 100;
 
             // 根据随机数确定中奖区间
