@@ -97,15 +97,23 @@ export default {
                 else this.output = randomValue.toFixed(0) + '元';
                 // 更新计数器
                 count++;
-
-                // 如果变化次数达到 100 次，停止定时器，并将 p 标签的值设为目标数据，启用按钮
-                if (count === 36) {
+                this.audio.addEventListener('ended', () => {
+                    // 在音乐停止时执行的逻辑
+                    // 清除定时器
                     clearInterval(interval);
                     this.output = this.winner;
                     this.disabled = false;
                     this.audio.pause();
                     this.audio.currentTime = 0;
-                }
+                });
+                // 如果变化次数达到 100 次，停止定时器，并将 p 标签的值设为目标数据，启用按钮
+                // if (count === 36) {
+                //     clearInterval(interval);
+                //     this.output = this.winner;
+                //     this.disabled = false;
+                //     this.audio.pause();
+                //     this.audio.currentTime = 0;
+                // }
             }, 50); // 每隔 50 毫秒执行一次
         },
         handle() {
